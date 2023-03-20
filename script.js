@@ -7,6 +7,12 @@ const addButton = document.getElementById("add-button");
 const todoList = document.getElementById("todo-list");
 
 input.addEventListener("input", onTypeTodo);
+input.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("add-button").click();
+  }
+});
 
 function onTypeTodo() {
   addButton.disabled = input.value.length === 0;
